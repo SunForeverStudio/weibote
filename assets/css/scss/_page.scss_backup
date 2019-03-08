@@ -1,0 +1,2005 @@
+@charset "utf-8";
+/************************************
+	mixin
+************************************/
+@import "mixin.scss";
+
+/************************************
+	common
+************************************/
+#wrap {
+	overflow-x: hidden;
+}
+.ttlH2 {
+	@include fsVw-SP(32);
+	line-height: 1.25;
+}
+.linkBtn {
+	.btn {
+		-webkit-backface-visibility: hidden;
+		backface-visibility: hidden;
+		@include vp(transition, all .5s ease);
+		a {
+			-webkit-backface-visibility: hidden;
+			backface-visibility: hidden;
+			@include vp(transition, all .5s ease);
+		}
+	}
+}
+
+/*** PC ***/
+@media #{$BkLarge} {
+	.ttlH2 {
+		@include fs-PC(32);
+	}
+}
+
+/************************************
+	FirstView
+************************************/
+#FirstView {
+	background: url(../img/firstView_bg_sp.png) left top repeat;
+	.boxInner {
+		padding: $baseSpace-H*4 $baseSpace-W $baseSpace-H*3;
+	}
+	.borderLine {
+		&:after {
+			background: url(../img/firstView_line.png) left top repeat;
+			content: '';
+			display: block;
+			padding-top: 30px;
+			width: 100%;
+		}
+	}
+	.ttlWrap {
+		margin-bottom: $baseSpace-H*2;
+		padding: 0 $baseSpace-W;
+		.pageTtl {
+			margin-bottom: $baseSpace-H;
+		}
+		.sttl {
+			margin-bottom: $baseSpace-H;
+		}
+		.readText {
+			p {
+				color: $color-Brown;
+				font-weight: bold;
+			}
+		}
+	}
+	.borderBox {
+		background: #fff;
+		border: 2px solid $color-Red;
+		border-radius: .5rem;
+		box-sizing: border-box;
+		@include fl;
+		@include fl-Wrap(wrap);
+		@include fl-Justify(space-between);
+		margin-bottom: $baseSpace-H*2;
+		position: relative;
+		.column {
+			box-sizing: border-box;
+			padding: $baseSpace-H $baseSpace-W;
+			width: 50%;
+			figure {
+				margin-bottom: $baseSpace-H;
+			}
+			.textWrap {
+				p {
+					color: $color-Red;
+					@include fsVw-SP(14);
+					font-weight: bold;
+					small {
+						color: $color-Brown;
+						display: block;
+					}
+				}
+			}
+			&.Point {
+				background: #fff;
+				border-radius: .45rem 0 0 .45rem / .45rem 0 0 .45rem;
+			}
+			&.Present {
+				background: #FDEEEF;
+				border-radius: 0 .45rem .45rem 0 / 0 .45rem .45rem 0;
+			}
+		}
+		.moreIcon {
+			left: 60%;
+			position: absolute;
+			@include vp(transform,translateX(-60%));
+			top: $baseSpace-H;
+			width: (46/345)*100%;
+		}
+		.endMessage {
+			background: rgba(255,255,255,.8);
+			border-radius: .5rem;
+			@include fl;
+			@include fl-Align(center);
+			@include fl-Justify(center);
+			height: 100%;
+			left: 0;
+			position: absolute;
+			text-align: center;
+			top: 0;
+			width: 100%;
+			.textWrap {
+				p {
+					@include fsVw-SP(24);
+					font-weight: bold;
+				}
+			}
+		}
+	}
+	.period {
+		.textWrap {
+			text-align: center;
+			p {
+				color: $color-Red;
+				@include fsVw-SP(16);
+			}
+		}
+	}
+}
+/*** PC ***/
+@media #{$BkLarge} {
+	#FirstView {
+		background: url(../img/firstView_bg.png) center top repeat;
+		position: relative;
+		.boxInner {
+			padding: $baseSpace-PC*2 $baseSpace-PC $baseSpace-PC*1.5;
+			margin: auto;
+			width: 760px;
+		}
+		.borderLine {
+			&:after {
+				padding-top: 30px;
+			}
+		}
+		.ttlWrap {
+			margin-bottom: $baseSpace-PC;
+			padding: 0 $baseSpace-PC;
+			.pageTtl {
+				margin-bottom: $baseSpace-PC/2;
+			}
+			.sttl {
+				margin-bottom: $baseSpace-PC/2;
+			}
+			.readText {
+				p {
+					@include fs-PC(24);
+					text-align: center;
+				}
+			}
+		}
+		.borderBox {
+			margin-bottom: $baseSpace-PC;
+			.column {
+				box-sizing: border-box;
+				padding: $baseSpace-PC;
+				figure {
+					margin-bottom: $baseSpace-PC/2;
+				}
+				.textWrap {
+					p {
+						@include fs-PC(20);
+						text-align: center;
+						small {
+							font-size: (16/20)*1em;
+						}
+					}
+				}
+				&.Point {
+					figure {
+						margin-right: auto;
+						margin-left: auto;
+						width: (195/380)*100%;
+					}
+				}
+				&.Present {
+					figure {
+						margin-right: auto;
+						margin-bottom: $baseSpace-PC*1.15;
+						margin-left: auto;
+						width: (292/380)*100%;
+					}
+				}
+			}
+			.moreIcon {
+				left: 50%;
+				@include vp(transform,translate(-50%,-50%));
+				top: 50%;
+				width: (68/780)*100%;
+			}
+			.endMessage {
+				.textWrap {
+					p {
+						@include fs-PC(24);
+					}
+				}
+			}
+		}
+		.period {
+			.textWrap {
+				p {
+					@include fs-PC(16);
+				}
+			}
+		}
+		&:before {
+			background: url(../img/firstView_bg_L.png) left top no-repeat;
+			content: '';
+			display: block;
+			left: 0;
+			padding: 30% 0;
+			position: absolute;
+			top: 0;
+			width: (200/1280)*100%;
+		}
+		&:after {
+			background: url(../img/firstView_bg_R.png) right top no-repeat;
+			content: '';
+			display: block;
+			padding: 30% 0;
+			position: absolute;
+			right: 0;
+			top: 0;
+			width: (200/1280)*100%;
+		}
+		&.bgNone {
+			&:before,
+			&:after {
+				display: none;
+			}
+		}
+	}
+}
+
+/************************************
+	Overview
+************************************/
+#Overview {
+	padding-top: $baseSpace-H*4;
+	.ttlH2 {
+		color: $color-Brown;
+		text-align: center;
+	}
+	.boxInner {
+		padding: $baseSpace-H*3 $baseSpace-W;
+	}
+	.readText {
+		margin-bottom: $baseSpace-H*2;
+		p {
+			@include fsVw-SP(16);
+			strong {
+				&.hashTag {
+					color: $color-BlueLight;
+					line-height: 1.25;
+					@include fsVw-SP(24);
+				}
+			}
+			.anchor {
+				color: $color-Red;
+				text-decoration: underline;
+			}
+			&:not(:last-child) {
+				margin-bottom: $baseSpace-H;
+			}
+		}
+	}
+	.linkBtn {
+		margin-bottom: $baseSpace-H*4;
+		padding: 0 $baseSpace-W;
+		.btn {
+			border: 2px solid $color-Red;
+			border-radius: 2.5rem;
+			box-sizing: border-box;
+			a {
+				box-sizing: border-box;
+				color: $color-Red;
+				@include fsVw-SP(16);
+				font-weight: bold;
+				padding: $baseSpace-H $baseSpace-W;
+				text-align: center;
+				.blank {
+					margin-left: .5rem;
+				}
+			}
+		}
+		&:active {
+			.btn {
+				background: $color-Red;
+				a {
+					color: #fff;
+				}
+			}
+		}
+	}
+	.borderBox {
+		background: #fff;
+		border: 2px solid $color-Red;
+		border-radius: .5rem;
+		box-sizing: border-box;
+		margin-bottom: $baseSpace-H*2;
+		position: relative;
+		.column {
+			box-sizing: border-box;
+			figure {
+				margin-bottom: $baseSpace-H;
+			}
+			.textWrap {
+				margin-bottom: $baseSpace-H;
+				p {
+					@include fsVw-SP(16);
+					font-weight: bold;
+					span {
+						color: $color-Brown;
+						display: block;
+					}
+					strong {
+						color: $color-Red;
+						@include fsVw-SP(24);
+					}
+				}
+			}
+			.note {
+				li {
+					color: #888;
+				}
+			}
+			&.Point {
+				background: #fff;
+				border-radius: .45rem .45rem 0 0 /  .45rem .45rem 0 0;
+				padding: $baseSpace-H*2 $baseSpace-W $baseSpace-H*6;
+				.textWrap {
+					p {
+						strong {
+							background: linear-gradient(transparent 65%, #ffff00 66%, #ffff00 90%, transparent 91%, transparent 100%);
+							display: inline;
+							position: relative;
+						}
+					}
+				}
+				figure {
+					margin-right: auto;
+					margin-bottom: $baseSpace-H;
+					margin-left: auto;
+					width: (272/345)*100%;
+				}
+			}
+			&.Present {
+				background: #FDEEEF;
+				border-radius: 0 0 .45rem .45rem / 0 0 .45rem .45rem;
+				padding: $baseSpace-H*6 $baseSpace-W $baseSpace-H*2;
+			}
+		}
+		.moreIcon {
+			left: 50%;
+			position: absolute;
+			@include vp(transform,translate(-56.5%,-50%));
+			top: 56.5%;
+			width: (68/345)*100%;
+		}
+	}
+}
+/*** PC ***/
+@media #{$BkLarge} {
+	#Overview {
+		padding-top: $baseSpace-PC*3;
+		.boxInner {
+			padding: $baseSpace-PC*2 $baseSpace-PC;
+			margin: auto;
+			width: 760px;
+		}
+		.readText {
+			margin-bottom: $baseSpace-PC;
+			text-align: center;
+			p {
+				@include fs-PC(16);
+				line-height: 2;
+				strong {
+					&.hashTag {
+						font-size: (26/16)*1em;
+					}
+				}
+				&:not(:last-child) {
+					margin-bottom: 0;
+				}
+			}
+		}
+		.linkBtn {
+			margin-right: auto;
+			margin-bottom: $baseSpace-PC*2;
+			margin-left: auto;
+			padding: 0;
+			width: (390/760)*100%;
+			.btn {
+				border-radius: 5rem;
+				a {
+					@include fs-PC(16);
+					padding: $baseSpace-PC/2 $baseSpace-PC;
+				}
+			}
+			&:hover {
+				.btn {
+					background: $color-Red;
+					a {
+						color: #fff;
+					}
+				}
+			}
+		}
+		.borderBox {
+			margin-bottom: $baseSpace-PC*2;
+			.column {
+				.columnInner {
+					@include fl;
+					@include fl-Wrap(wrap);
+					@include fl-Justify(space-between);
+					margin-right: auto;
+					margin-left: auto;
+					width: (700/740)*100%;
+					figure {
+						@include fl-Order(2);
+						width: (274/700)*100%;
+					}
+					.innerInner {
+						@include fl-Order(1);
+						width: (384/700)*100%;
+					}
+				}
+				figure {
+					margin-bottom: $baseSpace-PC;
+				}
+				.textWrap {
+					margin-bottom: $baseSpace-PC;
+					p {
+						@include fs-PC(16);
+						strong {
+							font-size: (26/16)*1em;
+						}
+					}
+					&.taC {
+						p {
+							text-align: center;
+						}
+					}
+				}
+				.note {
+					li {
+						&:not(:last-child) {
+							margin-bottom: $baseSpace-PC;
+						}
+					}
+				}
+				&.Point {
+					padding: $baseSpace-PC $baseSpace-PC $baseSpace-PC*2;
+					figure {
+						margin-right: 0;
+						margin-bottom: 0;
+						margin-left: 0;
+					}
+				}
+				&.Present {
+					padding: $baseSpace-PC*3 $baseSpace-PC $baseSpace-PC;
+				}
+			}
+			.moreIcon {
+				@include vp(transform,translate(-52%,-50%));
+				top: 52%;
+				width: (68/760)*100%;
+			}
+		}
+	}
+}
+
+/************************************
+	Entry
+************************************/
+#Entry {
+	background: url(../img/flow_bg.png) left top repeat;
+	padding-top: $baseSpace-H*4;
+	.ttlH2 {
+		color: #fff;
+		text-align: center;
+	}
+	.boxInner {
+		padding: $baseSpace-H*3 $baseSpace-W;
+	}
+	.flowChart {
+		&.logOut {
+			.errorMessage {
+				display: block;
+			}
+			.flow {
+				&.One {
+					.borderBoxWrap {
+						.borderBox {
+							.logIn,
+							.logInError {
+								display: none;
+							}
+							.textWrap {
+								p {
+									text-align: center;
+								}
+							}
+						}
+					}
+					.encloseBox {
+						display: none;
+					}
+				}
+				&.Two {
+					.flavorList {
+						cursor: default;
+						opacity: .5;
+						pointer-events: none;
+					}
+				}
+				&.Three {
+					.encloseBox {
+						opacity: .5;
+					}
+					.linkBtn {
+						opacity: .5;
+						pointer-events: none;
+					}
+				}
+			}
+		}
+		&.logInError {
+			.errorMessage {
+				display: block;
+			}
+			.flow {
+				&.One {
+					.borderBoxWrap {
+						.borderBox {
+							.logOut,
+							.logIn {
+								display: none;
+							}
+							.textWrap {
+								padding: $baseSpace-H*4 $baseSpace-W $baseSpace-H;
+								p {
+									color: $color-Red;
+									text-align: center;
+								}
+							}
+							.linkBtn {
+								&.login {
+									border-bottom: none;
+									margin: $baseSpace-H $baseSpace-W $baseSpace-H*3;
+									padding-bottom: 0;
+								}
+							}
+						}
+					}
+					.encloseBox {
+						display: none;
+					}
+				}
+				&.Three {
+					.linkBtn {
+						.btn {
+							background: #474444;
+							opacity: .5;
+							pointer-events: none;
+						}
+					}
+				}
+			}
+		}
+		&.logIn {
+			.flow {
+				&.One {
+					.borderBoxWrap {
+						.borderBox {
+							.logOut,
+							.logInError {
+								display: none;
+							}
+							.textWrap {
+								p {
+									text-align: center;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	.flow {
+		.flowInner {
+			background: #fff;
+			border-radius: .5rem;
+			box-sizing: border-box;
+			padding: $baseSpace-H*2 $baseSpace-W;
+		}
+		.num {
+			background: $color-Red;
+			border-radius: 50%;
+			box-sizing: border-box;
+			color: #fff;
+			display: block;
+			@include fsVw-SP(24);
+			font-weight: bold;
+			line-height: 1;
+			margin: 0 auto $baseSpace-H*2;
+			padding: .75em 0;
+			text-align: center;
+			width: 2.5em;
+		}
+		.ttlH3 {
+			color: $color-Red;
+			line-height: 1.25;
+			margin-bottom: $baseSpace-H*2;
+			.hashTag {
+				color: $color-BlueLight;
+			}
+		}
+		.readText {
+			margin-bottom: $baseSpace-H*2;
+			p {
+				@include fsVw-SP(16);
+			}
+		}
+		.errorMessage {
+			background: #FFEAEA;
+			border: 1px solid $color-Red;
+			border-radius: .5rem;
+			box-sizing: border-box;
+			display: none;
+			margin-bottom: $baseSpace-H*3;
+			padding: $baseSpace-H $baseSpace-W;
+			p {
+				color: $color-Red;
+				@include fsVw-SP(16);
+				font-weight: bold;
+				.error {
+					margin-right: .5rem;
+				}
+			}
+		}
+		&.One {
+			.borderBoxWrap {
+				margin-bottom: $baseSpace-H*2;
+				.borderBox {
+					border-radius: .5rem;
+					.borderBoxTtl {
+						@include fsVw-SP(20);
+						padding: $baseSpace-H $baseSpace-W;
+						text-align: center;
+					}
+					.stateWrap {
+						padding: $baseSpace-H*2 $baseSpace-W;
+						p {
+							color: $color-Green;
+							@include fsVw-SP(16);
+							font-weight: bold;
+							text-align: center;
+						}
+					}
+					.linkBtn {
+						&.login {
+							border-bottom: 1px solid #D6D6D6;
+							margin: $baseSpace-H*4 $baseSpace-W $baseSpace-H*3;
+							padding-bottom: $baseSpace-H*3;
+							.btn {
+								background: linear-gradient(to bottom, #fb9c28 0%,#f36a20 100%);
+								border-radius: 2.5rem;
+								box-sizing: border-box;
+								a {
+									box-sizing: border-box;
+									color: #fff;
+									@include fsVw-SP(16);
+									font-weight: bold;
+									padding: $baseSpace-H $baseSpace-W;
+									text-align: center;
+									.blank {
+										margin-left: .5rem;
+									}
+								}
+							}
+							&:active {
+								.btn {
+									background: linear-gradient(to bottom, #D77906 0%,#C74B08 100%);
+								}
+							}
+						}
+						&.entry {
+							margin: $baseSpace-H $baseSpace-W $baseSpace-H*4;
+							.btn {
+								border-radius: 2.5rem;
+								box-sizing: border-box;
+								a {
+									box-sizing: border-box;
+									@include fsVw-SP(16);
+									font-weight: bold;
+									padding: $baseSpace-H $baseSpace-W;
+									text-align: center;
+									.blank {
+										margin-left: .5rem;
+									}
+								}
+							}
+						}
+					}
+					.textWrap {
+						padding: $baseSpace-H*2 $baseSpace-W;
+						p {
+							@include fsVw-SP(16);
+							font-weight: bold;
+							&.name {
+								word-break: break-all;
+								@include fsVw-SP(20);
+								small {
+									@include fsVw-SP(12);
+								}
+							}
+							&.point {
+								@include fsVw-SP(20);
+								line-height: 1.25;
+								small {
+									@include fsVw-SP(12);
+								}
+							}
+							&.follower {
+								@include fsVw-SP(20);
+								line-height: 1.25;
+								small {
+									@include fsVw-SP(12);
+								}
+							}
+							&.id {
+								word-break: break-all;
+								color: #888;
+								@include fsVw-SP(16);
+							}
+						}
+					}
+					&.Point {
+						border: 1px solid $color-Blue;
+						margin-bottom: $baseSpace-H*2;
+						.borderBoxTtl {
+							border-bottom: 1px solid $color-Blue;
+							color: $color-Blue;
+						}
+						.stateWrap {
+							padding: $baseSpace-H*2 $baseSpace-W*4;
+						}
+						.textWrap {
+							padding: 0 $baseSpace-W*4 $baseSpace-H*2;
+							p {
+								&.point {
+									.pointText {
+										color: $color-Blue;
+									}
+								}
+							}
+						}
+						.linkBtn {
+							&.entry {
+								.btn {
+									border: 2px solid $color-Blue;
+									a {
+										color: $color-Blue;
+									}
+								}
+								&:active {
+									.btn {
+										background: $color-Blue;
+										a {
+											color: #fff;
+										}
+									}
+								}
+							}
+						}
+					}
+					&.User {
+						border: 1px solid $color-BlueLight;
+						.borderBoxTtl {
+							border-bottom: 1px solid $color-BlueLight;
+							color: $color-BlueLight;
+						}
+						.stateWrap {
+							padding: $baseSpace-H*2 $baseSpace-W*4;
+						}
+						.linkBtn {
+							&.entry {
+								.btn {
+									border: 2px solid $color-BlueLight;
+									a {
+										color: $color-BlueLight;
+									}
+								}
+								&:active {
+									.btn {
+										background: $color-BlueLight;
+										a {
+											color: #fff;
+										}
+									}
+								}
+							}
+						}
+						.borderBoxInner {
+							@include fl;
+							@include fl-Wrap(wrap);
+							@include fl-Align(center);
+							@include fl-Justify(space-between);
+							margin: auto;
+							padding: 0 0 $baseSpace-W*2;
+							width: (280/310)*100%;
+							figure {
+								width: (115/280)*100%;
+							}
+							.textWrap {
+								padding: 0;
+								width: (153/280)*100%;
+								p {
+									text-align: left;
+									&.follower {
+										.followerText {
+											color: $color-BlueLight;
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			.encloseBox {
+				background: #FFF5BA;
+				border-radius: .5rem;
+				box-sizing: border-box;
+				padding: $baseSpace-H $baseSpace-W;
+				p {
+					color: $color-Brown;
+					@include fsVw-SP(20);
+					font-weight: bold;
+					.pointText {
+						color: $color-Red;
+						.shoppingPoint {
+							@include fsVw-SP(24);
+						}
+					}
+				}
+			}
+		}
+		&.Two {
+			.flavorList {
+				@include fl;
+				@include fl-Wrap(wrap);
+				@include fl-Justify(space-between);
+				margin: auto;
+				width: (300/310)*100%;
+				li {
+					cursor: pointer;
+					margin-bottom: $baseSpace-H*2;
+					width: (140/300)*100%;
+					figure {
+						.imgWrap {
+							display: block;
+							margin-bottom: $baseSpace-H/2;
+							position: relative;
+							.img {
+								img {
+									background: #F5F5F5;
+									border: 2px solid #D6D6D6;
+									border-radius: .5rem;
+									box-sizing: border-box;
+								}
+								&.check {
+									img {
+										border: 2px solid $color-Green;
+									}
+								}
+							}
+							.choiceIcon {
+								left: $baseSpace-W/1.5;
+								position: absolute;
+								top: $baseSpace-H/2;
+								&.circle {
+									&:before {
+										color: #D6D6D6;
+										content: 'panorama_fish_eye';
+										display: block;
+										font-family: "Material Icons";
+									}
+								}
+								&.check {
+									&:before {
+										color: $color-Green;
+										content: 'check_circle';
+										display: block;
+										font-family: "Material Icons";
+									}
+								}
+							}
+						}
+						figcaption {
+							@include fsVw-SP(14);
+							text-align: center;
+						}
+					}
+				}
+				&.Ok {
+					li {
+						figure {
+							.imgWrap {
+								.img {
+									&.check {
+										img {
+											border: 2px solid $color-Green;
+										}
+									}
+								}
+								.choiceIcon {
+									&.check {
+										&:before {
+											color: $color-Green;
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				&.Error {
+					li {
+						figure {
+							.imgWrap {
+								.img {
+									&.check {
+										img {
+											border: 2px solid $color-Red;
+										}
+									}
+								}
+								.choiceIcon {
+									&.check {
+										&:before {
+											color: $color-Red;
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				&.End {
+					li {
+						pointer-events: none;
+					}
+				}
+			}
+			.linkBtn {
+				background: rgba(0,0,0,.5);
+				bottom: 0;
+				display: none;
+				left: 0;
+				padding: $baseSpace-H $baseSpace-W;
+				position: fixed;
+				width: 100%;
+				.btn {
+					border: 2px solid #fff;
+					background: $color-BlueLight;
+					border-radius: 2.5rem;
+					box-sizing: border-box;
+					a {
+						box-sizing: border-box;
+						color: #fff;
+						@include fsVw-SP(16);
+						font-weight: bold;
+						padding: $baseSpace-H $baseSpace-W;
+						text-align: center;
+					}
+				}
+				&:active {
+					.btn {
+						border: 2px solid $color-BlueLight;
+						background: #fff;
+						a {
+							color: $color-BlueLight;
+						}
+					}
+				}
+			}
+		}
+		&.Three {
+			.flowInner {
+				padding: 0;
+			}
+			.ttlWrap {
+				padding: $baseSpace-H*3 $baseSpace-W $baseSpace-H;
+			}
+			.readText {
+				padding: 0 $baseSpace-W $baseSpace-H;
+			}
+			.innerInner {
+				background: #EDEDED;
+				border-radius: 0 0 .45rem .45rem / 0 0 .45rem .45rem;
+				padding: $baseSpace-H*3 $baseSpace-W $baseSpace-H;
+				.encloseBox {
+					.User {
+						@include fl;
+						@include fl-Wrap(wrap);
+						@include fl-Align(center);
+						@include fl-Justify(space-between);
+						margin: auto;
+						padding: 0 0 $baseSpace-W*2;
+						figure {
+							margin-bottom: $baseSpace-H;
+							width: (116/310)*100%;
+						}
+						.textWrap {
+							padding: 0;
+							width: (182/310)*100%;
+							p {
+								&.name {
+							        word-break: break-all;
+									@include fsVw-SP(20);
+									small {
+										@include fsVw-SP(12);
+									}
+								}
+								&.id {
+									word-break: break-all;
+									color: #888;
+									@include fsVw-SP(20);
+									word-wrap: break-word;
+								}
+							}
+						}
+					}
+					.Tweet {
+						.balloonBox {
+							background: #fff;
+							border: 2px solid $color-BlueLight;
+							display: inline-block;
+							margin-bottom: $baseSpace-H*2;
+							padding: $baseSpace-H $baseSpace-W;
+							position: relative;
+							width: auto;
+							z-index: 0;
+							textarea {
+								border: none;
+								@include fsVw-SP(16);
+								height: 12em;
+								width: 100%;
+								&.hashtag {
+									color: $color-BlueLight;
+									height: 3em;
+									outline: none;
+									pointer-events: none;
+									user-select: none;
+								}
+								&.url {
+									color: $color-BlueLight;
+									height: 2em;
+									outline: none;
+									pointer-events: none;
+									user-select: none;
+								}
+							}
+							p {
+								@include fsVw-SP(16);
+								&.hashTag {
+									color: $color-BlueLight;
+								}
+								&.url {
+									color: $color-BlueLight;
+									word-break: break-all;
+								}
+							}
+							&:before {
+								border-style: solid;
+								border-width: 0 9px 13px 9px;
+								border-color: transparent transparent #fff transparent;
+								content: "";
+								display: block;
+								height: 0;
+								left: 17.5%;
+								margin-left: -9px;
+								position: absolute;
+								top: -12px;
+								width: 0;
+								z-index: 0;
+							}
+							&:after {
+								border-style: solid;
+								border-width: 0 10px 14px 10px;
+								border-color: transparent transparent $color-BlueLight transparent;
+								content: "";
+								display: block;
+								height: 0;
+								left: 17.5%;
+								margin-left: -10px;
+								position: absolute;
+								top: -16px;
+								width: 0;
+								z-index: -1;
+							}
+						}
+					}
+				}
+				.note {
+					color: #888;
+					margin-bottom: $baseSpace-H*2;
+				}
+				.linkBtn {
+					margin-bottom: $baseSpace-H*2;
+					padding: 0 $baseSpace-W;
+					.btn {
+						border: 2px solid #fff;
+						background: $color-BlueLight;
+						border-radius: 2.5rem;
+						box-sizing: border-box;
+						button {
+							background: transparent;
+							border: none;
+							box-sizing: border-box;
+							color: #fff;
+							@include fsVw-SP(16);
+							font-weight: bold;
+							padding: $baseSpace-H $baseSpace-W;
+							text-align: center;
+							width: 100%;
+						}
+					}
+					&:active {
+						.btn {
+							border: 2px solid $color-BlueLight;
+							background: #fff;
+							button {
+								color: $color-BlueLight;
+							}
+						}
+					}
+				}
+			}
+			&.formError {
+				.innerInner {
+					.errorMessage {
+						display: block;
+					}
+					.encloseBox {
+						.Tweet {
+							.balloonBox {
+								border: 2px solid $color-Red;
+								textarea {
+									color: $color-Red;
+									&.hashtag,
+									&.url {
+										color: $color-BlueLight;
+									}
+								}
+								&:after {
+									border-color: transparent transparent $color-Red transparent;
+								}
+							}
+						}
+					}
+					.linkBtn {
+						.btn {
+							background: #474444;
+							opacity: .5;
+							pointer-events: none;
+						}
+					}
+				}
+			}
+		}
+		&:not(:last-child) {
+			&:after {
+				color: #FFD800;
+				content: 'arrow_drop_down';
+				display: block;
+				font-family: "Material Icons";
+				font-size: 5rem;
+				text-align: center;
+			}
+		}
+	}
+}
+/*** PC ***/
+@media #{$BkLarge} {
+	#Entry {
+		padding-top: $baseSpace-PC*3;
+		.boxInner {
+			padding: $baseSpace-PC*2 $baseSpace-PC $baseSpace-PC*3;
+			margin: auto;
+			width: 960px;
+		}
+		.flowChart {
+			&.logOut {
+				.flow {
+					&.One {
+						.borderBoxWrap {
+							.borderBox {
+								.textWrap {
+									padding: $baseSpace-PC/2 $baseSpace-PC $baseSpace-PC/2;
+								}
+								.linkBtn {
+									&.login {
+										margin: $baseSpace-PC $baseSpace-PC $baseSpace-PC/2;
+										padding-bottom: $baseSpace-PC;
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			&.logInError {
+				.flow {
+					&.One {
+						.borderBoxWrap {
+							.borderBox {
+								.textWrap {
+									padding: $baseSpace-PC $baseSpace-PC $baseSpace-PC/2;
+								}
+								.linkBtn {
+									&.login {
+										margin: $baseSpace-PC/2 $baseSpace-PC $baseSpace-PC*1.5;
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		.flow {
+			.flowInner {
+				padding: $baseSpace-PC*2;
+			}
+			.ttlWrap {
+				@include fl;
+				@include fl-Wrap(wrap);
+				@include fl-Align(center);
+				margin-bottom: $baseSpace-PC;
+			}
+			.num {
+				@include fs-PC(24);
+				margin: 0 .5rem 0 0;
+			}
+			.ttlH3 {
+				@include fs-PC(24);
+				margin-bottom: 0;
+				width: calc(100% - 6rem);
+			}
+			.readText {
+				margin-bottom: $baseSpace-PC;
+				p {
+					@include fs-PC(16);
+				}
+			}
+			.errorMessage {
+				margin-bottom: $baseSpace-PC*1.5;
+				padding: $baseSpace-PC/2 $baseSpace-PC;
+				p {
+					@include fs-PC(16);
+					text-align: center;
+				}
+			}
+			&.One {
+				.borderBoxWrap {
+					@include fl;
+					@include fl-Wrap(wrap);
+					@include fl-Justify(space-between);
+					margin-right: auto;
+					margin-bottom: $baseSpace-PC;
+					margin-left: auto;
+					width: 760px;
+					.borderBox {
+						width: (370/760)*100%;
+						.borderBoxTtl {
+							@include fs-PC(20);
+							padding: $baseSpace-PC;
+						}
+						.stateWrap {
+							padding: $baseSpace-PC;
+							p {
+								@include fs-PC(16);
+							}
+						}
+						.textWrap {
+							padding: $baseSpace-PC;
+							p {
+								@include fs-PC(16);
+								&.name {
+									@include fs-PC(20);
+									small {
+										@include fs-PC(12);
+									}
+								}
+								&.point {
+									@include fs-PC(20);
+									small {
+										@include fs-PC(12);
+									}
+								}
+								&.follower {
+									@include fs-PC(20);
+									small {
+										@include fs-PC(12);
+									}
+								}
+								&.id {
+									@include fs-PC(16);
+								}
+							}
+						}
+						.linkBtn {
+							&.login {
+								margin: $baseSpace-PC/2 $baseSpace-PC $baseSpace-PC;
+								padding-bottom: $baseSpace-PC*1.5;
+								.btn {
+									a {
+										@include fs-PC(16);
+										padding: $baseSpace-PC/2 $baseSpace-PC;
+									}
+								}
+								&:hover {
+									.btn {
+										background: linear-gradient(to bottom, #D77906 0%,#C74B08 100%);
+									}
+								}
+							}
+							&.entry {
+								margin: $baseSpace-PC/2 $baseSpace-PC $baseSpace-PC;
+								.btn {
+									a {
+										@include fs-PC(16);
+										padding: $baseSpace-PC/2 $baseSpace-PC;
+									}
+								}
+							}
+						}
+						&.Point {
+							margin-bottom: 0;
+							.stateWrap {
+								padding: $baseSpace-PC*2 $baseSpace-PC*4 $baseSpace-PC;
+							}
+							.textWrap {
+								padding: 0 $baseSpace-PC*4;
+							}
+							.linkBtn {
+								&.entry {
+									&:hover {
+										.btn {
+											background: $color-Blue;
+											a {
+												color: #fff;
+											}
+										}
+									}
+								}
+							}
+						}
+						&.User {
+							.stateWrap {
+								padding: $baseSpace-PC*2 $baseSpace-PC*4 $baseSpace-PC;
+							}
+							.linkBtn {
+								&.entry {
+									&:hover {
+										.btn {
+											background: $color-BlueLight;
+											a {
+												color: #fff;
+											}
+										}
+									}
+								}
+							}
+							.borderBoxInner {
+								margin: auto;
+								padding: 0 0 $baseSpace-PC*2;
+								width: (280/370)*100%;
+								figure {
+									width: (115/280)*100%;
+								}
+								.textWrap {
+									padding: 0;
+									width: (153/280)*100%;
+									p {
+										&.follower {
+											.followerText {
+												color: $color-BlueLight;
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				.encloseBox {
+					margin-right: auto;
+					margin-left: auto;
+					padding: $baseSpace-PC;
+					width: 760px;
+					p {
+						@include fs-PC(20);
+						text-align: center;
+						.pointText {
+							.shoppingPoint {
+								font-size: (20/16)*1em;
+							}
+						}
+					}
+				}
+			}
+			&.Two {
+				.flavorList {
+					@include fl-Justify(flex-start);
+					width: 100%;
+					li {
+						margin-bottom: $baseSpace-PC;
+						width: (140/890)*100%;
+						figure {
+							.imgWrap {
+								margin-bottom: $baseSpace-PC/4;
+								.choiceIcon {
+									left: $baseSpace-PC/3;
+									top: $baseSpace-PC/4;
+								}
+							}
+							figcaption {
+								@include fs-PC(14);
+							}
+						}
+						&:not(:nth-child(6n)) {
+							margin-right: $baseSpace-PC/2.25;
+						}
+					}
+				}
+			}
+			&.Three {
+				.flowInner {
+					padding: 0;
+				}
+				.ttlWrap {
+					padding: $baseSpace-PC*2 $baseSpace-PC*2 $baseSpace-PC/2;
+				}
+				.readText {
+					padding: 0 $baseSpace-PC*2 $baseSpace-PC/2;
+				}
+				.innerInner {
+					padding: $baseSpace-PC*2 $baseSpace-PC*2 $baseSpace-PC;
+					.encloseBox {
+						@include fl;
+						@include fl-Wrap(wrap);
+						@include fl-Align(flex-start);
+						@include fl-Justify(space-between);
+						margin-right: auto;
+						margin-left: auto;
+						width: (820/960)*100%;
+						.User {
+							@include fl-Align(flex-start);
+							margin: 0;
+							padding: 0;
+							text-align: center;
+							width: (166/820)*100%;
+							figure {
+								margin-right: auto;
+								margin-bottom: $baseSpace-PC/2;
+								margin-left: auto;
+								width: (116/166)*100%;
+							}
+							.textWrap {
+								width: 100%;
+								p {
+									&.name {
+										@include fs-PC(18);
+										small {
+											font-size: (12/18)*1em;
+										}
+									}
+									&.id {
+										@include fs-PC(18);
+									}
+								}
+							}
+						}
+						.Tweet {
+							width: (646/820)*100%;
+							.balloonBox {
+								margin-bottom: $baseSpace-PC;
+								padding: $baseSpace-PC/2 $baseSpace-PC;
+								position: relative;
+								width: auto;
+								z-index: 0;
+								textarea {
+									@include fs-PC(20);
+									height: 8em;
+									&.hashtag {
+										height: 3em;
+									}
+									&.url {
+										height: 2em;
+									}
+								}
+								p {
+									@include fs-PC(20);
+								}
+								&:before {
+									left: -5px;
+									top: 25%;
+									@include vp(transform, rotate(-90deg));
+								}
+								&:after {
+									left: -9px;
+									top: 25%;
+									@include vp(transform, rotate(-90deg));
+								}
+							}
+						}
+					}
+					.note {
+						margin-right: 0;
+						margin-bottom: $baseSpace-PC;
+						margin-left: 0;
+						width: 100%;
+					}
+					.linkBtn {
+						margin-right: auto;
+						margin-bottom: $baseSpace-PC;
+						margin-left: auto;
+						padding: 0 $baseSpace-PC;
+						width: (576/960)*100%;
+						.btn {
+							button {
+								@include fs-PC(16);
+								padding: $baseSpace-PC/2 $baseSpace-PC;
+							}
+						}
+						&:hover {
+							.btn {
+								border: 2px solid $color-BlueLight;
+								background: #fff;
+								button {
+									color: $color-BlueLight;
+								}
+							}
+						}
+					}
+				}
+			}
+			&:not(:last-child) {
+				&:after {
+					font-size: 7.5rem;
+				}
+			}
+		}
+	}
+}
+
+/************************************
+	Requirement
+************************************/
+#Requirement {
+	background: #FAF6E5;
+	padding-top: $baseSpace-H*4;
+	.ttlH2 {
+		color: $color-Brown;
+		text-align: center;
+	}
+	.boxInner {
+		padding: $baseSpace-H*3 $baseSpace-W;
+	}
+	.readText {
+		margin-bottom: $baseSpace-H*2;
+		p {
+			@include fsVw-SP(16);
+		}
+	}
+	table {
+		border-top: 1px solid #D6D6D6;
+		width: 100%;
+		th {
+			color: $color-Red;
+			display: block;
+			@include fsVw-SP(16);
+			padding: $baseSpace-H*2 0 $baseSpace-H;
+			text-align: left;
+			width: 100%;
+		}
+		td {
+			border-bottom: 1px solid #D6D6D6;
+			display: block;
+			@include fsVw-SP(16);
+			padding: 0 0 $baseSpace-H*2;
+			width: 100%;
+			p {
+				&:not(:last-child) {
+					margin-bottom: $baseSpace-H;
+				}
+			}
+			.linkText {
+				color: $color-Red;
+				text-decoration: underline;
+			}
+			.note {
+				margin-top: $baseSpace-H;
+				li {
+					color: #888;
+				}
+				& + ul {
+					margin-top: $baseSpace-H;
+				}
+			}
+		}
+	}
+}
+/*** PC ***/
+@media #{$BkLarge} {
+	#Requirement {
+		padding-top: $baseSpace-PC*3;
+		.boxInner {
+			margin: auto;
+			padding: $baseSpace-PC*2 $baseSpace-PC $baseSpace-PC*3;
+			width: 960px;
+		}
+		.readText {
+			margin-bottom: $baseSpace-PC*2;
+			p {
+				@include fs-PC(16);
+				text-align: center;
+			}
+		}
+		table {
+			width: 100%;
+			th {
+				border-bottom: 1px solid #D6D6D6;
+				color: $color-Red;
+				display: table-cell;
+				@include fs-PC(16);
+				padding: $baseSpace-PC 0;
+				text-align: left;
+				vertical-align: top;
+				width: 15%;
+			}
+			td {
+				border-bottom: 1px solid #D6D6D6;
+				display: table-cell;
+				@include fs-PC(16);
+				padding: $baseSpace-PC;
+				width: 85%;
+				p {
+					&:not(:last-child) {
+						margin-bottom: $baseSpace-PC;
+					}
+				}
+				.linkText {
+					color: $color-Red;
+					text-decoration: underline;
+				}
+				.note {
+					margin-top: $baseSpace-PC/2;
+					& + ul {
+						margin-top: $baseSpace-PC/2;
+					}
+				}
+			}
+		}
+	}
+}
+
+/************************************
+	Confirm
+************************************/
+#Confirm {
+	padding-top: $baseSpace-H*4;
+	.ttlH2 {
+		color: $color-Brown;
+		text-align: center;
+	}
+	.boxInner {
+		padding: $baseSpace-H*3 $baseSpace-W;
+	}
+	.readText {
+		margin-bottom: $baseSpace-H*2;
+		p {
+			@include fsVw-SP(16);
+			&:not(:last-child) {
+				margin-bottom: $baseSpace-H;
+			}
+		}
+	}
+	.borderBox {
+		background: #fff;
+		border: 1px solid #E1E8ED;
+		border-radius: .5rem;
+		box-sizing: border-box;
+		margin-bottom: $baseSpace-H*4;
+		padding: $baseSpace-H*2 $baseSpace-W;
+		position: relative;
+	}
+	.ttlWrap {
+		@include fl;
+		@include fl-Wrap(wrap);
+		@include fl-Justify(space-between);
+		margin-bottom: $baseSpace-H*2;
+		.account {
+			@include fl;
+			@include fl-Wrap(wrap);
+			@include fl-Align(center);
+			@include fl-Justify(space-between);
+			width: (260/310)*100%;
+			figure {
+				width: (35/260)*100%;
+			}
+			.textWrap {
+				width: (220/260)*100%;
+				.name {
+					@include fsVw-SP(14);
+					font-weight: bold;
+				}
+				.id {
+					@include fsVw-SP(12);
+				}
+			}
+		}
+		.icon {
+			width: (30/310)*100%;
+		}
+	}
+	.tweet {
+		.textWrap {
+			margin-bottom: $baseSpace-H*2;
+			p {
+				@include fsVw-SP(14);
+				&.hashTag {
+					color: $color-BlueLight;
+				}
+				&.url {
+					color: $color-BlueLight;
+				}
+				&.date {
+					color: #697881;
+					@include fsVw-SP(12);
+				}
+			}
+		}
+		figure {
+			margin-bottom: $baseSpace-H;
+		}
+	}
+	.linkBtn {
+		margin-bottom: $baseSpace-H*4;
+		padding: 0 $baseSpace-W;
+		.btn {
+			background: $color-BlueLight;
+			border: 2px solid #fff;
+			border-radius: 2.5rem;
+			box-sizing: border-box;
+			button {
+				background: transparent;
+				border: none;
+				box-sizing: border-box;
+				color: #fff;
+				@include fsVw-SP(16);
+				font-weight: bold;
+				padding: $baseSpace-H $baseSpace-W;
+				text-align: center;
+                width: 100%;
+				.blank {
+					margin-left: .5rem;
+				}
+			}
+		}
+		&:active {
+			.btn {
+				border: 2px solid $color-BlueLight;
+				background: #fff;
+			    button {
+					color: $color-BlueLight;
+				}
+			}
+		}
+	}
+}
+/*** PC ***/
+@media #{$BkLarge} {
+	#Confirm {
+		padding-top: $baseSpace-PC*3;
+		.boxInner {
+			padding: $baseSpace-PC*2 $baseSpace-PC;
+		}
+		.readText {
+			margin-bottom: $baseSpace-PC*1.5;
+			p {
+				@include fs-PC(16);
+				text-align: center;
+			}
+		}
+		.borderBox {
+			margin-right: auto;
+			margin-bottom: $baseSpace-PC*2;
+			margin-left: auto;
+			padding: $baseSpace-PC*1.5 $baseSpace-PC $baseSpace-PC;
+			width: 500px;
+		}
+		.ttlWrap {
+			margin-bottom: $baseSpace-PC;
+			.account {
+				width: (450/500)*100%;
+				figure {
+					width: (35/450)*100%;
+				}
+				.textWrap {
+					width: (400/450)*100%;
+					.name {
+						@include fs-PC(14);
+						font-weight: bold;
+					}
+					.id {
+						@include fs-PC(12);
+					}
+				}
+			}
+			.icon {
+				width: (30/450)*100%;
+			}
+		}
+		.tweet {
+			.textWrap {
+				margin-bottom: $baseSpace-PC;
+				p {
+					@include fs-PC(14);
+					&.date {
+						@include fs-PC(12);
+					}
+				}
+			}
+			figure {
+				margin-bottom: $baseSpace-PC;
+			}
+		}
+		.linkBtn {
+			margin-right: auto;
+			margin-bottom: $baseSpace-PC*2;
+			margin-left: auto;
+			padding: 0 $baseSpace-PC;
+			width: 574px;
+			.btn {
+				button {
+					@include fs-PC(16);
+					padding: $baseSpace-PC/2 $baseSpace-PC;
+				}
+			}
+			&:hover {
+				.btn {
+					border: 2px solid $color-BlueLight;
+					background: #fff;
+				button{
+						color: $color-BlueLight;
+					}
+				}
+			}
+		}
+	}
+}
+
+/************************************
+	Comp
+************************************/
+#Comp {
+	padding-top: $baseSpace-H*4;
+	.boxInner {
+		padding: $baseSpace-H*3 $baseSpace-W;
+	}
+	.borderBox {
+		background: #fff;
+		border: 2px solid $color-BlueLight;
+		border-radius: .5rem;
+		box-sizing: border-box;
+		margin-bottom: $baseSpace-H*4;
+		padding: $baseSpace-H*2 $baseSpace-W;
+		position: relative;
+	}
+	.readText {
+		margin-bottom: $baseSpace-H*2;
+		p {
+			color: $color-BlueLight;
+			@include fsVw-SP(24);
+			font-weight: bold;
+		}
+	}
+	.textWrap {
+		p {
+			@include fsVw-SP(16);
+		}
+	}
+	.linkBtn {
+		margin-bottom: $baseSpace-H*4;
+		padding: 0 $baseSpace-W;
+		.btn {
+			background: $color-BlueLight;
+			border: 2px solid #fff;
+			border-radius: 2.5rem;
+			box-sizing: border-box;
+			a {
+				box-sizing: border-box;
+				color: #fff;
+				@include fsVw-SP(16);
+				font-weight: bold;
+				padding: $baseSpace-H $baseSpace-W;
+				text-align: center;
+				.blank {
+					margin-left: .5rem;
+				}
+			}
+		}
+		&:active {
+			.btn {
+				border: 2px solid $color-BlueLight;
+				background: #fff;
+				a {
+					color: $color-BlueLight;
+				}
+			}
+		}
+	}
+}
+/*** PC ***/
+@media #{$BkLarge} {
+	#Comp {
+		padding-top: $baseSpace-PC*3;
+		.boxInner {
+			padding: $baseSpace-PC*2 $baseSpace-PC;
+		}
+		.borderBox {
+			border: 4px solid $color-BlueLight;
+			margin-right: auto;
+			margin-bottom: $baseSpace-PC*2;
+			margin-left: auto;
+			padding: $baseSpace-PC*2 $baseSpace-PC $baseSpace-PC*1.5;
+			width: 840px;
+		}
+		.readText {
+			margin-bottom: $baseSpace-PC;
+			p {
+				@include fs-PC(24);
+				text-align: center;
+			}
+		}
+		.textWrap {
+			p {
+				@include fs-PC(16);
+				line-height: 2;
+				text-align: center;
+			}
+		}
+		.linkBtn {
+			margin-right: auto;
+			margin-bottom: $baseSpace-PC*2;
+			margin-left: auto;
+			padding: 0 $baseSpace-PC;
+			width: 574px;
+			.btn {
+				a {
+					@include fs-PC(16);
+					padding: $baseSpace-PC/2 $baseSpace-PC;
+				}
+			}
+			&:hover {
+				.btn {
+					border: 2px solid $color-BlueLight;
+					background: #fff;
+					a {
+						color: $color-BlueLight;
+					}
+				}
+			}
+		}
+	}
+}

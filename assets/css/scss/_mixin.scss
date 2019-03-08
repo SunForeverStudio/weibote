@@ -1,0 +1,220 @@
+@charset "utf-8";
+///////////////////////////////////////////////////////////////////////////
+//
+//  mixin SCSS
+//
+///////////////////////////////////////////////////////////////////////////
+
+/////////////////////////////////////
+//	変数
+/////////////////////////////////////
+// *----- 配色 -----*
+$color-Green: #05B72E;
+$color-Red: #E60011;
+$color-Blue: #1347B9;
+$color-BlueLight: #1DA1F2;
+$color-Brown: #8B602E;
+
+// *----- 余白 -----*
+$baseSpace-W: (30/750)*100%;
+$baseSpace-H: (30/1334)*100vw;
+$baseSpace-PC: (20/16)*1rem;
+
+// *----- レイヤーの重なり -----*
+// 最上層
+$layer-T: 4;
+// 上層
+$layer-MT: 3;
+// 中層
+$layer-M: 2;
+// 下層
+$layer-MB: 1;
+// 最下層
+$layer-B: -1;
+
+// *----- ブレイクポイント -----*
+// IPhone5
+$BkIPhone5: 'only screen and (max-width: 320px)';
+// スマートフォン
+$BkSmall: 'only screen and (max-width: 599px)';
+// タブレット
+$BkMiddle: 'only screen and (min-width: 600px) and (max-width: 1024px)';
+// ノートPC
+$BkLarge: 'only screen and (min-width: 1025px)';
+// ワイドモニタ
+$BkBigLarge: 'only screen and (min-width: 1171px)';
+// モバイル/縦
+$OrPortrait: 'only screen and (max-width: 1024px) and (orientation: portrait)';
+// モバイル/横
+$OrLandscape: 'only screen and (max-width: 1024px) and (orientation: landscape)';
+
+/////////////////////////////////////
+//	mixin
+/////////////////////////////////////
+// clearfix
+@mixin cf {
+	&:before,&:after {
+		content: "";
+		display: table;
+	}
+	&:after {
+		clear:both;
+	}
+}
+// ベンダープレフィックス
+$set_prefix: -webkit-, -moz-, -ms-, '';
+@mixin vp($property, $value) {
+	@each $prefix in -webkit-, -moz-, -ms-, '' {
+		#{$prefix}#{$property}: $value;
+	}
+}
+// 画像サイズFit
+@mixin imgfit {
+	height: auto;
+	width: 100%;
+}
+// flex
+@mixin fl {
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+}
+// flex-direction
+@mixin fl-Dir($direction) {
+	$row: row;
+	$row-reverse: row-reverse;
+	$column: column;
+	$column-reverse: column-reverse;
+	@if $direction == row {
+		@include box-direction(normal);
+		@include box-orient(horizontal);
+		-webkit-flex-direction: $row;
+		-ms-flex-direction: $row;
+		flex-direction: $row;
+	} @else if $direction == row-reverse {
+		@include box-direction(reverse);
+		@include box-orient(horizontal);
+		-webkit-flex-direction: $row-reverse;
+		-ms-flex-direction: $row-reverse;
+		flex-direction: $row-reverse;
+	} @else if $direction == column {
+		@include box-direction(normal);
+		@include box-orient(vertical);
+		-webkit-flex-direction: $column;
+		-ms-flex-direction: $column;
+		flex-direction: $column;
+	} @else if $direction == column-reverse {
+		@include box-direction(reverse);
+		@include box-orient(vertical);
+		-webkit-flex-direction: $column-reverse;
+		-ms-flex-direction: $column-reverse;
+		flex-direction: $column-reverse;
+	}
+}
+// align-items
+@mixin fl-Align($align){
+	$flex-align: "";
+	$box-align: "";
+	@if $align == "center" {
+		$flex-align: center;
+		$box-align: center;
+	} @else if $align == "flex-start" {
+		$flex-align: flex-start;
+		$box-align: start;
+	} @else if $align == "flex-end" {
+		$flex-align: flex-end;
+		$box-align: end;
+	} @else if $align == "baseline" {
+		$flex-align: baseline;
+		$box-align: baseline;
+	} @else if $align == "stretch" {
+		$flex-align: stretch;
+		$box-align: stretch;
+	}
+	-webkit-box-align: $box-align;
+	-ms-flex-align: $box-align;
+	-webkit-align-items: $flex-align;
+	align-items: $flex-align;
+}
+// justify-content
+@mixin fl-Justify($pack) {
+	$flex-content: "";
+	$flex-pac: "";
+	$flex-ms-pack: "";
+	@if $pack == "center" {
+		$flex-content: center;
+		$flex-ms-pack: center;
+		$flex-pac: center;
+	} @else if $pack == "flex-start" {
+		$flex-content: flex-start;
+		$flex-ms-pack: start;
+		$flex-pac: start;
+	} @else if $pack == "flex-end" {
+		$flex-content: flex-end;
+		$flex-ms-pack: end;
+		$flex-pac: end;
+	} @else if $pack == "space-between" {
+		$flex-content: space-between;
+		$flex-ms-pack: justify;
+		$flex-pac: justify;
+	} @else if $pack == "space-around" {
+		$flex-content: space-around;
+		$flex-ms-pack: distribute;
+		$flex-pac: justify;
+	}
+	-webkit-box-pack: $flex-pac;
+	-ms-flex-pack: $flex-ms-pack;
+	-webkit-justify-content: $flex-content;
+	justify-content: $flex-content;
+}
+// flex-wrap
+@mixin fl-Wrap($wrap) {
+	-webkit-flex-wrap: $wrap;
+	-ms-flex-wrap: $wrap;
+	flex-wrap: $wrap;
+}
+// align-content
+@mixin fl-AlignCont($line) {
+	-webkit-align-content: $line;
+	-ms-flex-line-pack: $line;
+	align-content: $line;
+}
+// order property
+@mixin fl-Order($num) {
+	-webkit-box-ordinal-group: $num + 1;
+	-webkit-order: $num;
+	-ms-flex-order: $num;
+	order: $num;
+}
+// link-color
+@mixin linkColor($color) {
+	color: $color;
+	&:hover, &:active, &:focus {
+	 color: lighten($color, 20%);
+	}
+}
+// box-shadow
+@mixin boxShadow( $h: 10px , $v: 10px , $b: 0px , $s: 0px , $c: #000000 ) {
+    -webkit-box-shadow: $h $v $b $s $c;
+    -moz-box-shadow: $h $v $b $s $c;
+    box-shadow: $h $v $b $s $c;
+}
+// Mobileフォントサイズ（16px基準=vw）
+@function getVw($size, $viewport:375){
+  $rate: 100 / $viewport;
+  @return $rate * $size * 1vw;
+}
+@mixin fsVw-SP($fontSize:16){
+  font-size: getVw($fontSize);
+}
+@function getVw-PC($size, $viewport:1280){
+  $rate: 100 / $viewport;
+  @return $rate * $size * 1vw;
+}
+@mixin fsVw-PC($fontSize:16){
+  font-size: getVw-PC($fontSize);
+}
+// PCフォントサイズ（16px基準=%）
+@mixin fs-PC($size, $base: 16) {
+  font-size: ($size / $base) * 1rem;
+}
